@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.andersenlab.testdrive'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitJupiterVersion = '5.10.2'
+    selenideVersion = '7.14.0'
+    javaFakerVersion = '1.0.2'
+}
+
+dependencies {
+    testImplementation "com.codeborne:selenide:${selenideVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.17'
+    testImplementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
+
